@@ -1,19 +1,56 @@
-
-
-
 //////////////////////////////////////////
-
 //
 // The prime factors of 13195 are 5, 7, 13 and 29.
 //
 // What is the largest prime factor of the number 600851475143 ?
 
-//////////////
-////////////// Saturday 3pm. More efficient.
-//////////////
-// var givenNum = 600851475143;
+///////////////////////////////////
+// Saturday 5pm
+///////////////////////////////////
 
-var factors = [];
+//Function for determining if a number is prime:
+
+var isPrime = input => {
+  let prime = true;
+  for (i = Math.floor(Math.sqrt(input)); i >= 2; i--) {
+    if (input % i === 0) {
+      prime = false;
+      break;
+    }
+  }
+  return prime;
+}
+
+isPrime(14);
+
+//Function for determining if a number is a factor of the given number:
+
+var isFactor = (dividend, divisor) => {
+  let factor = false;
+  if (dividend % divisor === 0) {
+    factor = true;
+  }
+  return factor;
+}
+
+var isBoth = (bigNum) => {
+  for (littleNum = Math.floor(bigNum / 2); littleNum > 1; littleNum--) {
+    isFactor(bigNum, littleNum);
+    console.log(isFactor);
+    if (isFactor) {
+      isPrime(littleNum);
+      if (isPrime = true) {
+        console.log(littleNum);
+        break;
+      }
+    }
+  }
+}
+
+isBoth(28);
+
+
+
 
 var givenNum = 28;
 for (i = Math.floor(givenNum / 2); i > 0; i--) {
@@ -31,46 +68,4 @@ for (i = Math.floor(givenNum / 2); i > 0; i--) {
 if (prime = true) {
   console.log(i, thisNum);
   break;
-}
-
-
-
-var givenNum = 35;
-for (i = 14; i > 0; i--) {
-  if (28 % 14 === 0) {
-    for (thisNum = 4; thisNum > 1; thisNum--) {
-      if (14 % 4 === 0) {
-        prime = false;
-      } else {
-        prime = true;
-        console.log(givenNum);
-        console.log(i);
-        console.log(thisNum);
-      }
-    }
-  }
-}
-// if (prime = true) {
-//   console.log(i);
-//   break;
-// }
-
-
-
-
-//2. loop through array, testing each factor for prime-ness
-for (i = 0; i < factors.length; i++) {
-  var divisor = 2
-  // var upperLimit = factors[i]/2;
-  for (j = 2; j <= Math.sqrt(factors[i]); j++) {
-    var prime = true;
-    if (factors[i] % 2 !== 0 && factors[i] % j === 0) {
-      prime = false;
-      break;
-    }
-  }
-  if (prime) {
-    console.log(factors[i]);
-    break;
-  }
 }
