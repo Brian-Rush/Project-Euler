@@ -54,3 +54,23 @@ for (i = 14; i > 0; i--) {
 //   console.log(i);
 //   break;
 // }
+
+
+
+
+//2. loop through array, testing each factor for prime-ness
+for (i = 0; i < factors.length; i++) {
+  var divisor = 2
+  // var upperLimit = factors[i]/2;
+  for (j = 2; j <= Math.sqrt(factors[i]); j++) {
+    var prime = true;
+    if (factors[i] % 2 !== 0 && factors[i] % j === 0) {
+      prime = false;
+      break;
+    }
+  }
+  if (prime) {
+    console.log(factors[i]);
+    break;
+  }
+}
