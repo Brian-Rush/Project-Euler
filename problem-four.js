@@ -34,3 +34,21 @@ var findPals = (small, big) => {
 }
 
 findPals(10000, 998001);
+
+
+//Next steps: write a function to find out if a number is the product of two 3-digit numbers
+//step backward through array and assess one at a time. console log first hit.
+
+
+var theCheck = (checkedNum) => {
+  for (i = 100; i < 1000; i++) {
+    var quotient = (checkedNum / i);
+    var quoLength = quotient.toString().length;
+    if (quoLength === 3) {
+      console.log(quotient, i, checkedNum);
+      break
+    }
+  }
+}
+
+theCheck(40000);
