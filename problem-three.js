@@ -8,44 +8,49 @@
 //
 // What is the largest prime factor of the number 600851475143 ?
 
-//3. if a given factor in the array is prime, console.log it and stop the loop.
-
-//1. find factors of givenNum, push them to array
-var givenNum = 600851475143;
-for (i = givenNum - 1; i > 0; i--) {
-  if (givenNum % i === 0) {
-    console.log(i);
-    break;
-  }
-}
-var primeFactors = [];
-var givenNum = 28;
-
 //////////////
-var givenNum = 600851475143;
+////////////// Saturday 3pm. More efficient.
+//////////////
+// var givenNum = 600851475143;
+
 var factors = [];
 
-//1. find factors of givenNum, push them to array
-for (i = givenNum - 1; i > 0; i--) {
+var givenNum = 28;
+for (i = Math.floor(givenNum / 2); i > 0; i--) {
   if (givenNum % i === 0) {
-    factors.push(i)
-  }
-}
-console.log(factors);
-
-//2. loop through array, testing each factor for prime-ness
-for (i = 0; i < factors.length; i++) {
-  var divisor = 2
-  // var upperLimit = factors[i]/2;
-  var prime = true;
-  for (j = 2; j <= Math.sqrt(factors[i]); j++) {
-    if (factors[i] % j === 0) {
-      prime = false;
-      break;
+    for (thisNum = Math.floor(Math.sqrt(i)); thisNum > 1; thisNum--) {
+      if (i % thisNum === 0) {
+        prime = false;
+      } else {
+        prime = true;
+        console.log(i, thisNum);
+      }
     }
   }
-  if (prime) {
-    console.log(factors[i]);
-    break;
+}
+if (prime = true) {
+  console.log(i, thisNum);
+  break;
+}
+
+
+
+var givenNum = 35;
+for (i = 14; i > 0; i--) {
+  if (28 % 14 === 0) {
+    for (thisNum = 4; thisNum > 1; thisNum--) {
+      if (14 % 4 === 0) {
+        prime = false;
+      } else {
+        prime = true;
+        console.log(givenNum);
+        console.log(i);
+        console.log(thisNum);
+      }
+    }
   }
 }
+// if (prime = true) {
+//   console.log(i);
+//   break;
+// }
