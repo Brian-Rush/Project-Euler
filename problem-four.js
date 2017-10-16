@@ -51,4 +51,12 @@ var theCheck = (checkedNum) => {
   }
 }
 
-theCheck(40000);
+// theCheck(40000);
+
+var findHighestHit = (givenArray) => {
+  for (i = givenArray.length; i >= 0; i--) {
+    theCheck(i);
+  }
+}
+
+findHighestHit(palArray);
