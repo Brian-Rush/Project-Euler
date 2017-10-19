@@ -10,8 +10,10 @@
 //see if number is factor
 
 //reverse the number
-var num = 8912345
-var revNum = parseInt(num.toString().split("").reverse().join(""));
+// var revNum = parseInt(num.toString().split("").reverse().join(""));
+
+
+//////////////////////////
 
 var palArray = []
 //check if number is a palindrome
@@ -20,42 +22,47 @@ var isPalindrome = (num) => {
   var backwards = parseInt(num.toString().split("").reverse().join(""));
   if (num === backwards) {
     pal = true;
-    // console.log(num);
-    palArray.push(i);
+    palArray.push(num);
   }
 }
 
 //make an array of palindromes in given range
 var findPals = (small, big) => {
-  for (i = small; i <= big; i++) {
-    isPalindrome(i);
+  for (var j = small; j <= big; j++) {
+    isPalindrome(j);
   }
   console.log(palArray, palArray.length);
 }
 
 findPals(10000, 998001);
 
-
 //Next steps: write a function to find out if a number is the product of two 3-digit numbers
 //step backward through array and assess one at a time. console log first hit.
 
-
 var theCheck = (checkedNum) => {
-  for (i = 100; i < 1000; i++) {
-    var quotient = (checkedNum / i);
-    var quoLength = quotient.toString().length;
-    if (quoLength === 3) {
-      console.log(quotient, i, checkedNum);
-      break
+  for (var k = 100; k < 1000; k++) {
+    var quotient = (checkedNum / k);
+    console.log(quotient + "=" + checkedNum + "/" + k);
+    if (Number.isInteger(quotient)) {
+      console.log(quotient + " is an integer!");
+      var quoLength = quotient.toString().match(/\d/g).length;
+      console.log(quoLength);
+      // return quoLength;
+      if (quoLength === 3) {
+        console.log("found a three digit factor!" + quotient, k, checkedNum);
+        return true;
+        // break;
+      }
     }
   }
 }
 
-// theCheck(40000);
-
 var findHighestHit = (givenArray) => {
-  for (i = givenArray.length; i >= 0; i--) {
-    theCheck(i);
+  for (i = (givenArray.length - 1); i >= 0; i--) {
+    if (theCheck(givenArray[i])) {
+      break;
+    }
+    // theCheck(i);
   }
 }
 
